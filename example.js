@@ -1,27 +1,27 @@
 /** @jsx React.DOM */
 var React = require('react');
-var FullScreenMixin = require('./index');
+var FullscreenMixin = require('./index');
 
 if (typeof window !== undefined) {
   window.React = React;
 }
 
 var MyComponent = React.createClass({
-  mixins: [FullScreenMixin],
+  mixins: [FullscreenMixin],
   getInitialState: function () {
     return {
       hasIframe: false
     }
   },
-  toggleFullScreen: function (e, ref) {
+  toggleFullscreen: function (e, ref) {
     e.preventDefault();
 
-    this.state.isFullscreen ? this.exitFullScreen() : this.requestFullScreen(ref ? ref : this.refs.container);
+    this.state.isFullscreen ? this.exitFullscreen() : this.requestFullscreen(ref ? ref : this.refs.container);
   },
-  onEnterFullScreen: function (e) {
+  onEnterFullscreen: function (e) {
     console.log('Entered fullscreen', e);
   },
-  onExitFullScreen: function (e) {
+  onExitFullscreen: function (e) {
     console.log('Exited fullscreen', e);
     if (this.state.hasIframe) {
       this.setState({ hasIframe: false });
@@ -29,13 +29,13 @@ var MyComponent = React.createClass({
     }
   },
   handleRequest: function () {
-    this.requestFullScreen(this.refs.container);
+    this.requestFullscreen(this.refs.container);
   },
   handleImg: function (e) {
-    this.toggleFullScreen(e, this.refs.demoImg);
+    this.toggleFullscreen(e, this.refs.demoImg);
   },
   handleVideo: function (e) {
-    this.toggleFullScreen(e, this.refs.demoVideo);
+    this.toggleFullscreen(e, this.refs.demoVideo);
   },
   handleIframe: function (e) {
     if (this.state.isFullscreen) {
@@ -60,7 +60,7 @@ var MyComponent = React.createClass({
     ) : null
   },
   render: function () {
-    var hasFullScreen = this.state.hasFullScreen;
+    var hasFullscreen = this.state.hasFullscreen;
     var fullScreenElement = this.state.fullScreenElement;
 
     return (
@@ -74,14 +74,14 @@ var MyComponent = React.createClass({
         <section>
           <p>Try out the Fullscreen API</p>
           <button id='request' onClick={this.handleRequest}>Request</button>
-          <button id='exit' onClick={this.exitFullScreen}>Exit</button>
-          <button id='toggle' onClick={this.toggleFullScreen}>Toggle</button>
-          <button id='request2' onClick={this.requestFullScreen}>Request document</button>
+          <button id='exit' onClick={this.exitFullscreen}>Exit</button>
+          <button id='toggle' onClick={this.toggleFullscreen}>Toggle</button>
+          <button id='request2' onClick={this.requestFullscreen}>Request document</button>
         </section>
         <section>
           <ul>
-            <li id='supported'>Supported/allowed: {this.state.hasFullScreen ? 'true' : 'false'}</li>
-            <li id='status'>Is fullscreen: {this.state.isFullScreen ? 'true' : 'false'}</li>
+            <li id='supported'>Supported/allowed: {this.state.hasFullscreen ? 'true' : 'false'}</li>
+            <li id='status'>Is fullscreen: {this.state.isFullscreen ? 'true' : 'false'}</li>
             <li id='element'>Element: {fullScreenElement ? fullScreenElement.localName + (fullScreenElement.id ? '#' + fullScreenElement.id : '') : ''}</li>
           </ul>
         </section>

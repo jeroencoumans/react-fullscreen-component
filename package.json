@@ -1,6 +1,6 @@
 {
   "name": "react-fullscreen-component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple component that let's you create fullscreen toggles",
   "main": "index.js",
   "repository": "jeroencoumans/react-fullscreen-component",

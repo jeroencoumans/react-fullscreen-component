@@ -1,10 +1,10 @@
 var screenfull = require('screenfull');
 
-var FullScreenMixin = {
+var FullscreenMixin = {
 
   getInitialState: function() {
     return {
-      hasFullScreen: false
+      hasFullscreen: false
     };
   },
 
@@ -12,15 +12,15 @@ var FullScreenMixin = {
     var enabled = screenfull.enabled;
 
     if (enabled) {
-      document.addEventListener(screenfull.raw.fullscreenchange, this.onChangeFullScreen);
+      document.addEventListener(screenfull.raw.fullscreenchange, this.onChangeFullscreen);
 
       this.setState({
-        hasFullScreen: enabled
+        hasFullscreen: enabled
       });
     }
   },
 
-  requestFullScreen: function (ref) {
+  requestFullscreen: function (ref) {
     if (ref && ref.getDOMNode) {
       var elem = ref.getDOMNode();
       screenfull.request(elem);
@@ -29,11 +29,11 @@ var FullScreenMixin = {
     }
   },
 
-  exitFullScreen: function () {
+  exitFullscreen: function () {
     screenfull.exit();
   },
 
-  onChangeFullScreen: function (e) {
+  onChangeFullscreen: function (e) {
     var isFullscreen = screenfull.isFullscreen;
     this.setState({
       isFullscreen: isFullscreen,
@@ -41,11 +41,11 @@ var FullScreenMixin = {
     });
 
     if (isFullscreen) {
-      typeof this.onEnterFullScreen === 'function' && this.onEnterFullScreen(e);
+      typeof this.onEnterFullscreen === 'function' && this.onEnterFullscreen(e);
     } else {
-      typeof this.onExitFullScreen === 'function' && this.onExitFullScreen(e);
+      typeof this.onExitFullscreen === 'function' && this.onExitFullscreen(e);
     }
   }
 };
 
-module.exports = FullScreenMixin;
+module.exports = FullscreenMixin;
