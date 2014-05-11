@@ -1,0 +1,22 @@
+{
+  "name": "react-fullscreen-component",
+  "version": "0.0.1",
+  "description": "Simple component that let's you create fullscreen toggles",
+  "main": "index.js",
+  "repository": "jeroencoumans/react-fullscreen-component",
+  "scripts": {
+    "start": "webpack --progress --colors --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeroen Coumans <jeroencoumans@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "envify": "^1.2.1",
+    "react": "^0.10.0",
+    "screenfull": "^1.2.1"
+  },
+  "devDependencies": {
+    "webpack": "^1.1.10",
+    "jsx-loader": "^0.10.2"
+  }
+}
