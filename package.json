@@ -13,7 +13,7 @@
   "dependencies": {
     "envify": "^1.2.1",
     "react": "^0.10.0",
-    "screenfull": "^1.2.1"
+    "screenfull": "jeroencoumans/screenfull.js#gh-pages"
   },
   "devDependencies": {
     "webpack": "^1.1.10",
