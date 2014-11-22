@@ -15,7 +15,9 @@ var FullscreenMixin = {
       document.addEventListener(screenfull.raw.fullscreenchange, this.onChangeFullscreen);
 
       this.setState({
-        hasFullscreen: enabled
+        hasFullscreen: enabled,
+        isFullscreen: screenfull.isFullscreen,
+        fullScreenElement: screenfull.element
       });
     }
   },
